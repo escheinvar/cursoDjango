@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+<title> {% block titulo %}Inicio del proyecto {% endblock titulo %}</title>
+
+{% block contenido %}
+
+{% include 'includes/cabecera.html' %}
+
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">Administrar  empleados</h1>
+        <form  method="GET" class="cell grid-x grid-margin-x"> {% csrf_token%}
+            <div class="cell large-7">
+                <input type="text" placeholder="buscar UR" id="buscarUR", name="buscarUR">
+            </div>
+            <div class="cell large-2">
+                <button type="submit" class="success button">Buscar por UR</button>
+            </div>
+        </form>
+
+        <div class="cell">
+            <!-- --------------- inicia foundation tabla (Containers: Table: Basic)------------------->
+            <table style="margin:1px black solid;">
+                <thead>
+                    <tr>
+                    <th width="20">ID</th>
+                    <th width="50">Nombres</th>
+                    <th width="150">Apellidos</th>
+                    <th>Departamentos</th>
+                    <th width="200">Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in object_list %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.first_name}}</td>
+                        <td>{{i.last_name}}</td>
+                        <td>{{i.departamento}}</td>
+                        <td>
+                            <a href="{% url 'persona_app:editarEmpleado' i.id %}"><button class="button success">Editar</button></a> 
+                            <a href="#"><button class="button warning">Borrar</button></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <!-- --------------- inicia foundation tabla (Containers: Table: Basic)------------------->
+        </div>
+
+        <div class="cell">
+            {% if is_paginated %}
+                <!-- --------------------- inicia fundation pagination ------------------------------------- -->
+                <nav aria-label="Pagination">
+                    <ul class="pagination text-center">
+                        {% if page_obj.has_previous %} 
+                            <li class="pagination-previous"><a href="?page={{page_obj.previous_page_number}}">Previo</a></li>
+                        {% endif %}
+                    
+                        {% for p in paginator.page_range %}
+                            {% if p == page_obj.number %}                                                                 
+                                <li class="current"><span class="show-for-sr">You're on page</span>{{ p }}</li>
+                            {% else %}
+                                <li class=""><a href="?page={{p}}">{{p}}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if page_obj.has_next %} 
+                            <li class="pagination-next"><a href="?page={{page_obj.next_page_number}}">Siguiente</a></li>
+                        {%endif%}
+                    </ul>
+                </nav>
+                <!-- --------------------- termina fundation paginatio ------------------------------------- -->
+            {% endif %}
+        </div>
+
+    </div>
+   
+    {% endblock contenido %}
+
+</div>

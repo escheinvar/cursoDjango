@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{%block title %}Enlistar departamentos{% endblock title %}
+
+{% block contenido %}
+{% include "includes/cabecera.html" %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell"> Empleados del área {{pk}}</h1>
+
+        <div class="cell large-4">
+            {% for i in object_list %}
+                <li>{{ i }}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+    {% endblock contenido %}
+    
+            
+

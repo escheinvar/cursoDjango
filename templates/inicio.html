@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+<title> {% block titulo %}Inicio del proyecto {% endblock titulo %}</title>
+
+{% block contenido %}
+{% include 'includes/cabecera.html' %}
+
+
+
+<!-- -------------------- Inicia Código de Foundation (fotos: Media/orbit) ------------------------- -->
+<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+    <div class="orbit-wrapper">
+      <div class="orbit-controls">
+        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+        <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+      </div>
+      <ul class="orbit-container">
+        <li class="is-active orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="https://upload.wikimedia.org/wikipedia/commons/7/75/SEMARNAT_Logo_2019.svg" alt="Space" style="height: 150px;">
+            <!-- figcaption class="orbit-caption">Space, the final frontier.</figcaption-->
+          </figure>
+        </li>
+        <li class="orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="http://sinat.semarnat.gob.mx/retc/imgs/logo-semarnat.png" alt="Space"  style="width: 650px; align:center;">
+            <!-- figcaption class="orbit-caption">Lets Rocket!</figcaption -->
+          </figure>
+        </li>
+        
+      </ul>
+    </div>
+    <!--nav class="orbit-bullets">
+      <button class="is-active" data-slide="0">
+        <span class="show-for-sr">First slide details.</span>
+        <span class="show-for-sr" data-slide-active-label>Current Slide</span>
+      </button>
+      <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+      <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+      <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+    </nav -->
+  </div>
+<!-- -------------------- Termina Código de Foundation  (fotos: Media/orbit) ------------------------- -->
+
+
+<br><br>
+
+<!-- --------------------- Inicia Bloque de bienvenida --------------------------->
+<div class="grid-x align-center">
+    <h1 class="cell large-8" style="text-align:center;">Bienvenido al sistema de registro</h1>
+        <div class="cell large-7">
+            <!-- ------------------ Inicia Foundation (Containers:callout) ------------------ -->
+            <div class="callout primary">
+                <h5>This is a secondary callout</h5>
+                <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                
+              </div>
+            <!-- ------------------ Termina Foundation (Containers:callout) ------------------ -->
+        </div>
+</div>
+<!-- --------------------- Termina Bloque de bienvenida --------------------------->
+
+
+{% endblock contenido %}
+

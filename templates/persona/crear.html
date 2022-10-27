@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+<title> {% block titulo %}Inicio del proyecto {% endblock titulo %}</title>
+
+{% block contenido %}
+
+{% include 'includes/cabecera.html' %}
+    <div  class="grid-container">
+        <div class="grid-x">
+            <h1 class="cell">Ingresando Nuevo Empleado</h1>
+            
+            <div class="cell large-6">
+                <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="button warning">Enviar</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}

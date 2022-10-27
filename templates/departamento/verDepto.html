@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{%block title %}Enlistar departamentos{% endblock title %}
+
+{% block contenido %}
+{% include "includes/cabecera.html" %}
+
+
+<div class="grid-conainer">
+    <div class="grid-x align-center">
+        <h1 class="cell large-10">Departamentos </h1>
+
+        <div class="cell large-10" style="border:solid 4px gray;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>UR</th> <th>Nombre</th><th>Opción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for i in Deptos %}
+                        {% if i.anulate != 'True' %}
+                        <tr>
+                            <td>{{i.shor_name}}</td>
+                            <td>{{i.name}}</td>
+                            <td><a href="/EmpsPorArea/{{i.shor_name}}"> <button class="button warning">Ver empleados</button></a></td>
+                        {% endif%}
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock contenido %}

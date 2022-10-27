@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+<title> {% block titulo %}Inicio del proyecto {% endblock titulo %}</title>
+
+{% block contenido %}
+
+{% include 'includes/cabecera.html' %}
+<div class="grid-container">
+    <div class="grid-x">
+
+        <h1 class="cell">Ver detalle</h1> {{bla}}  {{ble}}
+        <h2 class="cell"> {{object.full_name}}</h2> <!-- puedo llamar por object name o por nombre de la base en minusculas-->
+        <div class="cell large-6">
+            <p><b>Nombre:</b> {{ empleado.first_name }}
+            <p><b>Apellido:</b> {{ empleado.last_name }}
+            <p><b>Departamento:</b> {{ empleado.departamento }}
+            <p><b>Job:</b> {{ empleado.job }} = {{empleado.get_job_display}}    
+            <p><b>Habilidades:</b> {{ empleado.habilidades }}
+                {% for h in empleado.habilidades.all %}
+                <li>{{ h.habilidad }} = {{h.id}}</li>
+
+                {% endfor %}
+            <p><b>Borrado lógico:</b>{{empleado.activo}} = {{empleado.get_activo_display}}
+            <p><b>Avatar:</b><img src="{{empleado.avatar.url}}"> 
+        </div>
+    </div>
+</div>
+
+{% endblock contenido %}

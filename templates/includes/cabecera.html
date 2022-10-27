@@ -1,0 +1,28 @@
+<!-- -------------------- Inicia Código de Foundation (Imagen de portada)------------------------- -->
+<div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">Empleados</li>
+        <li><a href="/">Inicio</a></li>
+        <li>
+          <a href="/TodosEmpleados">Listar</a>
+          <!-- ul class="menu vertical">
+            <li><a href="#">Sub a</a></li>
+            <li><a href="#">Sub b</a></li>
+            <li><a href="#">Sub c</a></li>
+          </ul -->
+        </li>
+        <li><a href="/deptos/">Departamentos</a></li>
+        <li><a href="/AdminTodos/">Administrar</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><a><input type="search" placeholder="Buscar empleado"></a></li>
+        <li><a href="{% url 'persona_app:NuevoEmpleado' %}"><button type="button" class="button" >Registrar Nuevo</button></a></li>
+        
+
+      </ul>
+    </div>
+  </div>
+  <!-- -------------------- Termina Código de Foundation (Imagen de portada)------------------------ -->

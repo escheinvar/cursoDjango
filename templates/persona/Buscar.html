@@ -1,0 +1,13 @@
+<h1>Buscar</h1
+<html>
+<body>
+    
+<form method="GET"> {% csrf_token %}
+    <input type="text" id="kword" name="kword" placeholder="indica ur">
+    <button type="submit"> enviar</button>
+</form>
+
+{% for i in Busqueda %}
+    <li>{{ i }}
+{% endfor %}
+<form 
